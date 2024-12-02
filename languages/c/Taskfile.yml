@@ -1,0 +1,20 @@
+version: '3'
+
+interval: 500ms
+
+vars:
+  compiler: gcc
+  output: program
+
+tasks:
+  build-run:
+    description: "Watch a C file for changes and recompile/run on save"
+    watch: true
+    args:
+      - file
+    sources: 
+      - '**/*.c'
+    cmds:
+      - "echo building and running '{{.file}}'"
+      - "{{.compiler}} -o {{.output}} {{.file}}" 
+      - "./{{.output}}"
