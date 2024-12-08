@@ -17,4 +17,4 @@ tasks:
     cmds:
       - "echo building and running '{{.file}}'"
       - "{{.compiler}} -o {{.output}} {{.file}}" 
-      - "./{{.output}}"
+      - "time ./{{.output}}"
